@@ -5,7 +5,8 @@ import Paddle from "./components/Paddle";
 export default function App() {
   return (
     <div className="App">
-      <Paddle />
+      <Paddle className="paddle1" />
+      <Paddle className="paddle2" />
     </div>
   );
 }

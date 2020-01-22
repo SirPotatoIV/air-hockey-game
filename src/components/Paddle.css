@@ -1,7 +1,16 @@
-.paddle {
-  width: 100px;
-  height: 25px;
+.paddle1 {
+  width: 25px;
+  height: 100px;
   background-color: salmon;
   border-radius: 8px;
   box-shadow: 2px 2px 2px lightgray;
+}
+
+.paddle2 {
+  width: 25px;
+  height: 100px;
+  background-color: rebeccapurple;
+  border-radius: 8px;
+  box-shadow: 2px 2px 2px lightgray;
+  justify-self: flex-start;
 }
