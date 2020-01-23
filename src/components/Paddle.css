@@ -6,6 +6,7 @@
 
   /* positioning */
   position: absolute;
+  transform: translateY(50%);
 }
 
 .playerOne {
@@ -13,14 +14,11 @@
 
   /* positioning */
   left: 20px;
-  bottom: 50%;
-  transform: translateY(50%);
 }
 
 .playerTwo {
   background-color: rebeccapurple;
-  right: 20px;
-  bottom: 50%;
-  transform: translateY(50%);
+
   /* positioning */
+  right: 20px;
 }
