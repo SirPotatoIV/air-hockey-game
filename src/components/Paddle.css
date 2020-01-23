@@ -1,16 +1,14 @@
-.paddle1 {
+.paddle {
   width: 25px;
   height: 100px;
-  background-color: salmon;
   border-radius: 8px;
   box-shadow: 2px 2px 2px lightgray;
 }
 
-.paddle2 {
-  width: 25px;
-  height: 100px;
+.playerOne {
+  background-color: salmon;
+}
+
+.playerTwo {
   background-color: rebeccapurple;
-  border-radius: 8px;
-  box-shadow: 2px 2px 2px lightgray;
-  justify-self: flex-start;
 }

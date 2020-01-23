@@ -6,7 +6,7 @@ export default function App() {
   return (
     <div className="App">
       <Paddle className="paddle1" />
-      <Paddle className="paddle2" />
+      <Paddle isPlayerTwo className="paddle2" />
     </div>
   );
 }
