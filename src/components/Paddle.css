@@ -3,12 +3,24 @@
   height: 100px;
   border-radius: 8px;
   box-shadow: 2px 2px 2px lightgray;
+
+  /* positioning */
+  position: absolute;
 }
 
 .playerOne {
   background-color: salmon;
+
+  /* positioning */
+  left: 20px;
+  bottom: 50%;
+  transform: translateY(50%);
 }
 
 .playerTwo {
   background-color: rebeccapurple;
+  right: 20px;
+  bottom: 50%;
+  transform: translateY(50%);
+  /* positioning */
 }
