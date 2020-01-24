@@ -11,14 +11,14 @@
 
 .playerOne {
   background-color: salmon;
-
+  bottom: 50%;
   /* positioning */
   left: 20px;
 }
 
 .playerTwo {
   background-color: rebeccapurple;
-
+  bottom: 50%;
   /* positioning */
   right: 20px;
 }

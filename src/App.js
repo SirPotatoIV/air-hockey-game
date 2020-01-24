@@ -1,10 +1,16 @@
 import React, { useEffect, useState } from "react";
-import "./styles.css";
 import Paddle from "./components/Paddle";
+import Ball from "./components/Ball.js";
+import "./styles.css";
 
 export default function App() {
   const [playerOnePosition, setPlayerOnePosition] = useState(10);
   const [playerTwoPosition, setPlayerTwoPosition] = useState(10);
+
+  const container = {
+    width: "400",
+    height: "300"
+  };
 
   function handleKeyPress(res) {
     // https://developer.mozilla.org/en-US/docs/Web/API/Document/keypress_event
@@ -42,12 +48,13 @@ export default function App() {
     <div
       className="container"
       style={{
-        width: "400px",
-        height: "300px"
+        width: `${container.width}px`,
+        height: `${container.height}px`
       }}
     >
       <Paddle positionY={playerOnePosition} />
       <Paddle positionY={playerTwoPosition} isPlayerTwo />
+      <Ball containerH={container.height} containerW={container.width} />
     </div>
   );
 }
