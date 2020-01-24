@@ -1,11 +1,32 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useReducer } from "react";
 import Paddle from "./components/Paddle";
 import Ball from "./components/Ball.js";
 import "./styles.css";
 
+const initialState = {
+  paddle1: {
+    y: 0
+  },
+  paddle2: {
+    y: 0
+  }
+};
+
+function reducer(state, action) {
+  switch (action.type) {
+    case "MOVE_PADDLE_1":
+      return { ...state, paddle1: action.payload };
+    case "MOVE_PADDLE_2":
+      return { ...state, paddle2: action.payload };
+    default:
+      throw new Error("did not match event");
+  }
+}
+
 export default function App() {
-  const [playerOnePosition, setPlayerOnePosition] = useState(10);
-  const [playerTwoPosition, setPlayerTwoPosition] = useState(10);
+  // const [playerOnePosition, setPlayerOnePosition] = useState(10);
+  // const [playerTwoPosition, setPlayerTwoPosition] = useState(10);
+  const [state, dispatch] = useReducer(reducer, initialState);
 
   const container = {
     width: "400",
@@ -14,35 +35,53 @@ export default function App() {
 
   function handleKeyPress(res) {
     // https://developer.mozilla.org/en-US/docs/Web/API/Document/keypress_event
-    console.log(res.code);
+    // console.log(res.code);
     switch (res.code) {
       case "KeyW":
         // code block
-        setPlayerOnePosition(playerOnePosition + 10);
+        dispatch({
+          type: "MOVE_PADDLE_1",
+          payload: {
+            y: state.paddle1.y + 10
+          }
+        });
         break;
       case "KeyS":
         // code block
-        setPlayerOnePosition(playerOnePosition - 10);
+        dispatch({
+          type: "MOVE_PADDLE_1",
+          payload: {
+            y: state.paddle1.y - 10
+          }
+        });
         break;
       case "KeyO":
         // code block
-        console.log("o case occurred");
-        setPlayerTwoPosition(playerTwoPosition + 10);
+        dispatch({
+          type: "MOVE_PADDLE_2",
+          payload: {
+            y: state.paddle2.y + 10
+          }
+        });
         break;
       case "KeyL":
         // code block
-        setPlayerTwoPosition(playerTwoPosition - 10);
+        dispatch({
+          type: "MOVE_PADDLE_2",
+          payload: {
+            y: state.paddle2.y - 10
+          }
+        });
         break;
       default:
-        setPlayerOnePosition(0);
-        setPlayerTwoPosition(0);
+        throw new Error("key press caused issues");
     }
   }
 
   useEffect(() => {
     window.addEventListener("keypress", handleKeyPress);
     return () => window.removeEventListener("keypress", handleKeyPress);
-  }, [playerOnePosition, playerTwoPosition]);
+  }, [state]);
 
   return (
     <div
@@ -52,8 +91,8 @@ export default function App() {
         height: `${container.height}px`
       }}
     >
-      <Paddle positionY={playerOnePosition} />
-      <Paddle positionY={playerTwoPosition} isPlayerTwo />
+      <Paddle positionY={state.paddle1.y} />
+      <Paddle positionY={state.paddle2.y} isPlayerTwo />
       <Ball containerH={container.height} containerW={container.width} />
     </div>
   );
