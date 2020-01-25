@@ -2,12 +2,12 @@ import React from "react";
 import "./Paddle.css";
 
 export default function Paddle({ isPlayerTwo, positionY }) {
-  console.log(positionY);
+  // console.log(pos);
   return (
     <div
       className={isPlayerTwo ? "paddle playerTwo" : "paddle playerOne"}
       style={{
-        transform: `translateY(calc(-50% - ${positionY}px))`
+        top: positionY
       }}
     />
   );
